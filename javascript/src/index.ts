@@ -1,3 +1,8 @@
 export function add(numbers?: string): number {
-  return 0;
+  return (
+    numbers
+      ?.split(",")
+      .map((n) => Number(n))
+      .reduce((acc, current) => acc + current, 0) ?? 0
+  );
 }
