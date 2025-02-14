@@ -25,6 +25,10 @@ class TestAddFunction(unittest.TestCase):
             with self.subTest(input_str=input_str):
                 self.assertEqual(add(input_str), expected)
 
+    # Test for delimiters
+    def test_newline_delimiter(self):
+        self.assertEqual(add("1\n2,3"), 6)
+
 
 if __name__ == "__main__":
     unittest.main()
