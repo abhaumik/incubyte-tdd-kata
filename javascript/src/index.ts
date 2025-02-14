@@ -6,6 +6,12 @@ export function add(numbers?: string): number {
     [delimiter, input] = numbers.substring(2).split(/\n(.*)/);
   }
 
+  if (typeof delimiter === "string") {
+    if (delimiter.match(/\[.*]/)) {
+      delimiter = delimiter.substring(1, delimiter.length - 1);
+    }
+  }
+
   const numberArray = input?.split(delimiter).map((n) => Number(n));
 
   if (!numberArray) {
