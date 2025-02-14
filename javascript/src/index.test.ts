@@ -30,6 +30,9 @@ describe("Test for delimiters", () => {
   it("Takes any delimiter", () => {
     expect(add("//;\n1;2")).toBe(3);
   });
+  it("Takes delimiter of any length", () => {
+    expect(add("//[***]\n1***2***3")).toBe(6);
+  });
 });
 
 describe("Test for negative numbers", () => {
@@ -47,8 +50,8 @@ describe("Test for negative numbers", () => {
   });
 });
 
-describe("Test numbers larger than 1000", ()=>{
-    it("should ignore numbers larger than 1000", () => {
-        expect(add("2,1000")).toBe(2)
-    })
-})
+describe("Test numbers larger than 1000", () => {
+  it("should ignore numbers larger than 1000", () => {
+    expect(add("2,1000")).toBe(2);
+  });
+});
