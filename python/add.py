@@ -15,6 +15,9 @@ def add(numbers: str = None) -> int:
     if numbers == None:
         return 0
 
+    if numbers and numbers.startswith("//"):
+        delimiter, input_str = numbers[2:].split("\n", 1)
+
     number_list = list(map(convertToInt, re.split(delimiter, input_str)))
 
     return sum(number_list)
