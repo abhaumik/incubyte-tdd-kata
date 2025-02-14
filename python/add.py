@@ -24,4 +24,4 @@ def add(numbers: str = None) -> int:
         if n < 0:
             raise ValueError(f"negative numbers not allowed {n}")
 
-    return sum(number_list)
+    return sum(current for current in number_list if current < 1000)
