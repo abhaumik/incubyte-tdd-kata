@@ -22,3 +22,9 @@ describe("Takes any size of string", () => {
     expect(add(str)).toBe(numberOfInputs);
   });
 });
+
+describe("Test for delimiters", () => {
+  it("Takes new line as delimiter", () => {
+    expect(add("1\n2,3")).toBe(6);
+  });
+});
