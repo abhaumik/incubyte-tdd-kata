@@ -7,8 +7,11 @@ export function add(numbers?: string): number {
   }
 
   if (typeof delimiter === "string") {
-    if (delimiter.match(/\[.*]/)) {
-      delimiter = delimiter.substring(1, delimiter.length - 1);
+    if (delimiter.match(/\[[^\]]+?\]/)) {
+      const delimiterArray = Array.from(delimiter.matchAll(/\[[^\]]+?\]/g)).map(
+        (s) => s[0].substring(1, s[0].length - 1)
+      );
+      delimiter = new RegExp(`[${delimiterArray.join()}]`);
     }
   }
 
