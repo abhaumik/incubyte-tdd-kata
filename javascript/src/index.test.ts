@@ -31,3 +31,10 @@ describe("Test for delimiters", () => {
     expect(add("//;\n1;2")).toBe(3);
   });
 });
+
+describe("Test for negative numbers", () => {
+  it("should not take negative numbers", () => {
+    expect(add("-1")).toThrow("negative numbers not allowed -1");
+    expect(add("1,-5")).toThrow("negative numbers not allowed -5");
+  });
+});
