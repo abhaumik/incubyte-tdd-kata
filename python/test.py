@@ -32,6 +32,19 @@ class TestAddFunction(unittest.TestCase):
     def test_any_delimiter(self):
         self.assertEqual(add("//;\n1;2"), 3)
 
+    # Test for negative numbers
+    def test_negative_numbers(self):
+        def handle_error(input_str):
+            try:
+                add(input_str)
+                return None
+            except ValueError as e:
+                return str(e)
+
+        self.assertEqual(handle_error("-1"), "negative numbers not allowed -1")
+        self.assertEqual(handle_error("1,-5"),
+                         "negative numbers not allowed -5")
+
 
 if __name__ == "__main__":
     unittest.main()
