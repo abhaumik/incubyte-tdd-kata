@@ -45,6 +45,10 @@ class TestAddFunction(unittest.TestCase):
         self.assertEqual(handle_error("1,-5"),
                          "negative numbers not allowed -5")
 
+    # Test numbers larger than 1000
+    def test_ignore_large_numbers(self):
+        self.assertEqual(add("2,1000"), 2)
+
 
 if __name__ == "__main__":
     unittest.main()
