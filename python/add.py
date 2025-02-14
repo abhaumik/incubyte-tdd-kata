@@ -9,7 +9,7 @@ def convertToInt(input_str):
 
 
 def add(numbers: str = None) -> int:
-    delimiter = r'[,]'
+    delimiter = r'[,\n]'
     input_str = numbers
 
     if numbers == None:
