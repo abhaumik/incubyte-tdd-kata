@@ -33,6 +33,12 @@ describe("Test for delimiters", () => {
   it("Takes delimiter of any length", () => {
     expect(add("//[***]\n1***2***3")).toBe(6);
   });
+  it("Takes multiple delimiters", ()=>{
+    expect(add("//[*][%]\n1*2%3")).toBe(6);
+  })
+  it("Takes multi character multiple delimiters", ()=>{
+    expect(add("//[-*][%]\n1-*2%3")).toBe(6);
+  })
 });
 
 describe("Test for negative numbers", () => {
