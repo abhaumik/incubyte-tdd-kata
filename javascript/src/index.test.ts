@@ -12,3 +12,13 @@ describe("Test add function for simple inputs ", () => {
   });
 });
 
+describe("Takes any size of string", () => {
+  it.each(
+    [0, 1, 2, 3, 5, 10, 100].map((numberOfInputs: number) => [
+      Array(numberOfInputs).fill(1).toString(),
+      numberOfInputs,
+    ])
+  )('string "%s" with numberOfInputs %i', (str, numberOfInputs) => {
+    expect(add(str)).toBe(numberOfInputs);
+  });
+});
