@@ -18,5 +18,8 @@ export function add(numbers?: string): number {
     }
   }
 
-  return numberArray?.reduce((acc, current) => acc + current, 0);
+  return numberArray?.reduce(
+    (acc, current) => acc + (current >= 1000 ? 0 : current),
+    0
+  );
 }

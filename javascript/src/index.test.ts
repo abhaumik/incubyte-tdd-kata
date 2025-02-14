@@ -46,3 +46,9 @@ describe("Test for negative numbers", () => {
     expect(handleError("1,-5")).toBe("negative numbers not allowed -5");
   });
 });
+
+describe("Test numbers larger than 1000", ()=>{
+    it("should ignore numbers larger than 1000", () => {
+        expect(add("2,1000")).toBe(2)
+    })
+})
