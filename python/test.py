@@ -32,6 +32,15 @@ class TestAddFunction(unittest.TestCase):
     def test_any_delimiter(self):
         self.assertEqual(add("//;\n1;2"), 3)
 
+    def test_delimiter_of_any_length(self):
+        self.assertEqual(add("//[***]\n1***2***3"), 6)
+
+    def test_multiple_delimiters(self):
+        self.assertEqual(add("//[*][%]\n1*2%3"), 6)
+
+    def test_multi_char_multiple_delimiters(self):
+        self.assertEqual(add("//[-*][%]\n1-*2%3"), 6)
+
     # Test for negative numbers
     def test_negative_numbers(self):
         def handle_error(input_str):
