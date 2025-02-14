@@ -15,6 +15,15 @@ class TestAddFunction(unittest.TestCase):
     def test_two_inputs(self):
         self.assertEqual(add("1,5"), 6)
 
+    # Test for any size of string input
+    def test_various_sizes(self):
+        test_cases = [
+            (','.join(['1'] * numberOfInputs), numberOfInputs) for numberOfInputs in [0, 1, 2, 3, 5, 10, 100]
+        ]
+
+        for input_str, expected in test_cases:
+            with self.subTest(input_str=input_str):
+                self.assertEqual(add(input_str), expected)
 
 
 if __name__ == "__main__":
