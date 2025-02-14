@@ -34,7 +34,15 @@ describe("Test for delimiters", () => {
 
 describe("Test for negative numbers", () => {
   it("should not take negative numbers", () => {
-    expect(add("-1")).toThrow("negative numbers not allowed -1");
-    expect(add("1,-5")).toThrow("negative numbers not allowed -5");
+    const handleError = (input: string) => {
+      try {
+        add(input);
+        return undefined;
+      } catch (error) {
+        return error;
+      }
+    };
+    expect(handleError("-1")).toBe("negative numbers not allowed -1");
+    expect(handleError("1,-5")).toBe("negative numbers not allowed -5");
   });
 });
